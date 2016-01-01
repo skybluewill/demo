@@ -75,7 +75,7 @@
 						foreach ($this->write as $otherClient) {
 							$msg = $this->decode($data);
 							//echo $msg;
-							$msg = $this->frame($msg);
+							//$msg = $this->frame($msg);
 							if(count($this->write) == 1){
 								//$data = '只有你一个人在聊天室哦~！';
 								$msg = 'You are alone'; 
@@ -84,7 +84,7 @@
 							}
 
 							//echo 'Message is :';var_dump($msg);echo "\n";
-							//$msg = $this->frame($data);
+							$msg = $this->frame($msg);
 							//$msg = $this->decode($msg);
 
 							socket_write($otherClient, $msg);
