@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>聊天室</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+<div id='red' style="width:20px;height:20px;background-color:red;">
+</div>
+<script type="text/javascript">
+	//console.log(WebSocket.prototype);
+	(function(){
+
+		var url = "ws://127.0.0.1:5000";		//声明WebSocket服务器地址和端口
+		var handler = new WebSocket(url);		//创建WebSocket对象
+		handler.onopen = function(){			//如果握手成功的触发事件
+			console.log('handshake is successful');
+		};
+		handler.onmessage = function(e){
+			console.log('message:'+e.data);
+		}
+		//alert(document.getElementsByTagName('body')[0]);
+		document.getElementById('red').onclick =  function(){
+			handler.send('Hello World');
+			//alert(123);
+		}
+	})();
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+	<title>原型链demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+		function Foo () {
+			// body...
+			this.name = 'Amy';
+			this.age  = 20;
+			this.say  = function(){
+							return 'hahaha';
+						}
+			
+		}
+
+		obj = new Foo();			//实例化Foo
+		console.log(obj);
+		Foo.prototype.height = 160;
+		console.log(obj);
+
+		Foo.prototype = obj;
+		Foo.prototype.height = 200;
+		console.log(obj.__proto__);
+		console.log(Foo.prototype);		
+		console.log(Foo.prototype === obj.__proto__);
+
+		Foo.prototype.room = '404';
+		console.log(obj.__proto__);
+		console.log(Foo.prototype);
+		//Foo.prototype = obj.__proto__;
+		Foo.prototype.monney = "$qwe";
+		console.log(obj.__proto__);
+		console.log(Foo.prototype);
+
+		obj2 = new Foo();
+		console.log(obj2.__proto__.__proto__);
+
+	</script>
+</body>
+</html>
